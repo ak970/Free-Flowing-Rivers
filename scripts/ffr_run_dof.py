@@ -16,6 +16,7 @@ from config import config
 fd = config.var
 
 
+
 def run_dof(stamp, para, paths):
     """
     Set up for multiprocessing. Creates a isolated processing environment,
