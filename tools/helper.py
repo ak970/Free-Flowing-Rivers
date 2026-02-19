@@ -1,4 +1,5 @@
-import cPickle
+# import cPickle
+import pickle
 import datetime
 import logging
 import os
@@ -485,7 +486,7 @@ def load_parameters(path):
 
     for sname in ["settings_sheet", "scenarios_sheet", "run_dof", "run_dor", "run_sed", "run_csi"]:
         if sname not in start_dict.keys():
-            print "\r\n" + "Start variable not found: {}".format(sname)
+            print ("\r\n" + "Start variable not found: {}".format(sname))
             sys.exit()
 
     set_sheet = start_dict["settings_sheet"]
@@ -501,7 +502,7 @@ def load_parameters(path):
         settings_sheet = xls.parse(set_sheet)
     except Exception as e:
         print (str(e))
-        print "Does sheet {} exist?".format(set_sheet)
+        print ("Does sheet {} exist?".format(set_sheet))
         sys.exit()
 
     var1 = settings_sheet['Key']
@@ -519,7 +520,7 @@ def load_parameters(path):
         sce_sheet = xls.parse(sce_sheet)
     except Exception as e:
         print (str(e))
-        print "Does sheet {} exist?".format(sce_sheet)
+        print ("Does sheet {} exist?".format(sce_sheet))
         sys.exit()
 
     # Check if fields are there
@@ -545,7 +546,7 @@ def load_parameters(path):
 
     for h in header:
         if h not in sce_sheet.columns:
-            print "{} not found".format(h)
+            print ("Field {} not found".format(h))
 
     field_set = set()
 

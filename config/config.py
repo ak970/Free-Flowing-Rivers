@@ -112,7 +112,7 @@ class var:
     ###############################
 
     # Existing sediment yield of all pixels in reach catchment
-    ERO_YLD_TON = "ERO_YLD_TON"
+    ERO_YLD_TON = "ERO_YLD_TO"
 
     ###############################
     # Field to create and calculate

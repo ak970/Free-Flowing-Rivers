@@ -1,4 +1,5 @@
-import cPickle
+# import cPickle
+import pickle
 import multiprocessing
 import os
 import sys
@@ -45,7 +46,7 @@ def run_dor(stamp, para, paths):
 
     in_basins = list(get_unique(dams_fc, barrier_inc_field))
 
-    print dams_fc
+    print (dams_fc)
     print ("Loading {}".format(str(streams_fc)))
     streams = load_streams(streams_fc, dor_field)
     dams_temp = load_dams(dams_fc, barrier_inc_field)

@@ -1,4 +1,5 @@
-import cPickle
+# import cPickle
+import pickle
 import os
 
 import arcpy
@@ -27,12 +28,12 @@ def pst_csi_calculations(dir):
         # NAME.csi files represent scenario run with CSI values of each river reach
         if filename.endswith(".csi"):
             x = x + 1
-            print filename
+            print (filename)
             fil = os.path.join(dir, filename)
             # Load the pickle options back into model
             # https://stackoverflow.com/a/899199/344647
             with open(fil, 'rb') as fp:
-                result_slice = cPickle.load(fp)
+                result_slice = pickle.load(fp)
 
                 if x == 1:
                     previous_sum = pd.Series(np.zeros_like(result_slice))
@@ -67,7 +68,7 @@ def pst_csi_calculations(dir):
 
     concatentated = pd.concat(mc_results, axis=1)
 
-    print "Percentile Stats"
+    print ("Percentile Stats")
     df = pd.DataFrame(concatentated)
     df.columns = ['CSI_AVG', 'CSI_MIN', 'CSI_MAX', 'CSI_RNG', 'CSI_STD']
 

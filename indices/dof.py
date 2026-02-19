@@ -87,7 +87,7 @@ def calculate_DOF(dams, streams, mode, dof_field, drf_upstream, drf_downstream,
             for n in nodes:
 
                 # Add one or several constraints on how to rout
-                if n <> -1 and n <> '':
+                if n != -1 and n != '':
 
                     # Check if node has waterfall. If the waterfall is on the
                     # reach where the dam is, stop routing upstream
@@ -112,7 +112,7 @@ def calculate_DOF(dams, streams, mode, dof_field, drf_upstream, drf_downstream,
                             upstream_oid = nuoid[n - 1].split("_")
                             if len(upstream_oid) > 0:
                                 for up in upstream_oid:
-                                    if up <> '' and up > 0:
+                                    if up != '' and up > 0:
                                         new_nodes.append(int(up))
 
             nodes = new_nodes
@@ -125,7 +125,7 @@ def calculate_DOF(dams, streams, mode, dof_field, drf_upstream, drf_downstream,
             if len(nodes) == 0:
                 break
             for n in nodes:
-                if n <> -1 and n <> '':
+                if n != -1 and n != '':
                     # declare segment as fragmented if local discharge of
                     # reach is within upper and lower limits
                     discharge_local = disch[n - 1]
@@ -172,7 +172,7 @@ def get_dof_down(discharge_local, discharge_barrier, downstream_mode,
         b = a * (100 / math.log10(dis_range_factor))
         x = 100 - b
     else:
-        print "discharge mode undefined"
+        print ("discharge mode undefined")
         sys.exit()
 
     # I some cases x can get out of bounds
@@ -208,7 +208,7 @@ def get_dof_up(discharge_local, discharge_barrier, upstream_mode,
         b = a * (100 / math.log10(dis_range_factor))
         x = 100 - b
     else:
-        print "discharge mode undefined"
+        print ("discharge mode undefined")
         sys.exit()
 
     # I some cases x can get out of bounds

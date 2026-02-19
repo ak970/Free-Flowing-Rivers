@@ -107,7 +107,7 @@ def calculate_sed(streams, dam_volu_dict, lake_volu_dict, small_lake_loss_dict):
         stream[fd.SED_NAT] = sed_nat
 
         # Add the results to next downstream reach
-        if streams[stream[fd.NOID] - 1][fd.NDOID] <> 0:
+        if streams[stream[fd.NOID] - 1][fd.NDOID] != 0:
             streams[stream[fd.NDOID] - 1][fd.SED_NAT_UP] = \
                 streams[stream[fd.NDOID] - 1][fd.SED_NAT_UP] + sed_nat
 
@@ -167,7 +167,7 @@ def calculate_sed(streams, dam_volu_dict, lake_volu_dict, small_lake_loss_dict):
         stream[fd.SED_ANT] = sed_ant
 
         # Add the results to next downstream reach
-        if streams[stream[fd.NOID] - 1][fd.NDOID] <> 0:
+        if streams[stream[fd.NOID] - 1][fd.NDOID] != 0:
             streams[stream[fd.NDOID] - 1][fd.SED_ANT_UP] = \
                 streams[stream[fd.NDOID] - 1][fd.SED_ANT_UP] + sed_ant
 

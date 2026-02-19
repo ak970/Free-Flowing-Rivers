@@ -1,4 +1,5 @@
-import cPickle
+# import cPickle
+import pickle
 import multiprocessing
 import os
 import sys
@@ -158,7 +159,7 @@ def run_dof(stamp, para, paths):
 
     # Update automatically
     if update_stream_mode.lower() == "yes":
-        print "Updating dof values in database {} ".format(streams_fc)
+        print ("Updating dof values in database {} ".format(streams_fc))
 
         tool.copy_between(to_join_fc=streams_fc,
                           to_join_field="GOID",
