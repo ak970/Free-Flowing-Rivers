@@ -115,7 +115,7 @@ def run_csi(stamp, para, scenarios, st_flds, paths):
         # Saving CSI slice to Pickle for later conducting sensitivity analysis
         # Each scenario result will have their own pickle. Sensitivity
         # analysis loads the pickles and processes them together
-        tools.save_as_cpickle(pickle_object=stream_csi[sce_name],
+        tools.save_as_pickle(pickle_object=stream_csi[sce_name],
                               folder=paths["sta_csi_folder"], name=sce_name,
                               file_extension=".csi")
 

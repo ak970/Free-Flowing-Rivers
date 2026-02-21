@@ -11,7 +11,8 @@ class var:
 
     # Storage volume in million cubic meters (MCM)
 
-    STOR_MCM = "STOR_MCM"
+    # STOR_MCM = "STOR_MCM"
+    STOR_MCM = "CAP_MCM"
 
     # Discharge factor upstream (if used)
     DFU = "DFU"
@@ -51,6 +52,7 @@ class var:
 
     # Basin ID
     BAS_ID = "BAS_ID"
+
 
     # Basin Name
     BAS_NAME = "BAS_NAME"

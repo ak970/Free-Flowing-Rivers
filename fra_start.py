@@ -16,6 +16,7 @@ import logging
 import os
 import shutil
 import sys
+import arcpy
 
 import tools.helper as tools
 from config import config
@@ -166,6 +167,23 @@ def main():
                ] + fields + [fd.FLD]
 
     ba_flds = [para["svol_field"]]
+
+
+    # print("streams_fc path:", para["streams_fc"])
+
+    # print("Fields in streams_fc:")
+    # for f in arcpy.ListFields(para["streams_fc"]):
+    #     print(f.name, f.type)
+
+
+    # print("streams_fc path:")
+    # print(para["streams_fc"])
+
+    # print("\nFields in streams_fc:")
+    # for f in arcpy.ListFields(para["streams_fc"]):
+    #     print(f"'{f.name}'", f.type)
+
+
 
     tools.check_fields(para["streams_fc"], st_flds)
     tools.check_fields(para["dams_fc"], ba_flds)

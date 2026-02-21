@@ -359,7 +359,7 @@ def copy_between(to_join_fc, to_join_field, IntoJoinField, FromJoinFC,
 
 def get_writer(base_dir, stamp):
     # Setup a Excel Writer target file
-    excel_file_output = os.path.join(base_dir, "results_" + stamp + ".xls")
+    excel_file_output = os.path.join(base_dir, "results_" + stamp + ".xlsx")
     return pd.ExcelWriter(excel_file_output), excel_file_output
 
 
@@ -382,10 +382,9 @@ def export_excel(df, name, writer, id=False, startrow=0,
         writer,
         name,
         index=False,
-        encoding='utf-8',
         startrow=startrow,
         header=header)
-    writer.save()
+    # writer.close()
 
 
 def create_results_sheet(writer):

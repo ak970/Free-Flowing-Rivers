@@ -114,7 +114,7 @@ def run_dor(stamp, para, paths):
         i += 1
 
         with open(bas, 'rb') as fp:
-            tbl[i] = cPickle.load(fp)
+            tbl[i] = pickle.load(fp)
 
     merged = np.concatenate(tbl.values(), 1)
 
@@ -273,7 +273,7 @@ def export(streams, basin, folder):
 
     fullpath = os.path.join(folder, fullname)
 
-    tool.save_as_cpickle(pickle_object=streams,
+    tool.save_as_pickle(pickle_object=streams,
                          folder=folder,
                          name=name,
                          file_extension=suffix)
