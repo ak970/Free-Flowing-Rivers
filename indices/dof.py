@@ -112,7 +112,7 @@ def calculate_DOF(dams, streams, mode, dof_field, drf_upstream, drf_downstream,
                             upstream_oid = nuoid[n - 1].split("_")
                             if len(upstream_oid) > 0:
                                 for up in upstream_oid:
-                                    if up != '' and up > 0:
+                                    if up != '' and int(up) > 0:
                                         new_nodes.append(int(up))
 
             nodes = new_nodes

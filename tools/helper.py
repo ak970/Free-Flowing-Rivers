@@ -259,7 +259,7 @@ def update_stream_routing_index(streams):
 
     oidDict = {}
     upsDict = defaultdict(str)
-    downDict = defaultdict(long)
+    downDict = defaultdict(int)
 
     i = 1
     for myrow in streams:
@@ -757,10 +757,10 @@ def remove_csi_traces(fc, name):
                 arcpy.AlterField_management(fc, field.name, fn, fn)
 
 
-def save_as_cpickle(pickle_object, folder, name, file_extension):
+def save_as_pickle(pickle_object, folder, name, file_extension):
     outfile = os.path.join(folder, str(name) + file_extension)
     with open(outfile, 'wb') as fp:
-        cPickle.dump(pickle_object, fp)
+        pickle.dump(pickle_object, fp)
 
 
 def update_dam_routing_index(dams, arr):
@@ -778,4 +778,20 @@ def update_dam_routing_index(dams, arr):
         oldGOID = dam[fd.GOID]
         find = arr[(arr[fd.GOID]) == oldGOID]
         new_goid = find[fd.NOID]
-        dam[fd.GOID] = new_goid
+        # print("new_goid:", new_goid, type(new_goid))
+        # dam[fd.GOID] = new_goid
+        # dam[fd.GOID] = int(new_goid[0])
+        
+        # new_goid is expected to be a numpy array of matches
+        if hasattr(new_goid, "__len__"):
+            if len(new_goid) == 0:
+                raise ValueError(
+                    f"No matching GOID found for dam. "
+                    f"Dam GOID={dam[fd.GOID]}, Dam BAS_ID={dam[fd.BAS_ID]}"
+                )
+            elif len(new_goid) > 1:
+                raise ValueError(f"Multiple GOID matches found: {new_goid}")
+            else:
+                dam[fd.GOID] = int(new_goid[0])
+        else:
+            dam[fd.GOID] = int(new_goid)
