@@ -116,7 +116,8 @@ def run_dor(stamp, para, paths):
         with open(bas, 'rb') as fp:
             tbl[i] = pickle.load(fp)
 
-    merged = np.concatenate(tbl.values(), 1)
+    # merged = np.concatenate(tbl.values(), 1)  ## python2 version
+    merged = np.concatenate(list(tbl.values()), axis=0)
 
     df = pd.DataFrame(merged)
 
@@ -168,7 +169,7 @@ def run_basin(streams, dams, basin, stamp, scratchws, dor_field):
     tool.update_stream_routing_index(streams)
     tool.update_dam_routing_index(dams, streams)
 
-    print ("Calculating DOR for basin {}".format(str(basin)))
+    # print ("Calculating DOR for basin {}".format(str(basin)))
 
     indices.dor.calculate_dor(dams, streams, dor_field)
 

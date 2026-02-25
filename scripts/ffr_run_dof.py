@@ -143,7 +143,12 @@ def run_dof(stamp, para, paths):
         with open(bas, 'rb') as fp:
             tbl[i] = pickle.load(fp)
 
-    merged = np.concatenate(tbl.values(), 1)
+    # print shape of output tables for debugging
+    # for k, v in tbl.items():
+    #     print(k, v.shape)
+
+    # merged = np.concatenate(tbl.values(), 1)  ## python2 version
+    merged = np.concatenate(list(tbl.values()), axis=0)
 
     df = pd.DataFrame(merged)
 

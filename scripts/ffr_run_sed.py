@@ -133,7 +133,7 @@ def update_stream_routing_index(streams):
     oid_dict = {}
     convert_dict = {}
     ups_dict = defaultdict(str)
-    down_dict = defaultdict(long)
+    down_dict = defaultdict(int)
 
     i = 1
     for myrow in streams:
